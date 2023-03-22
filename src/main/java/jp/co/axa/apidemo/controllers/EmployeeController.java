@@ -3,6 +3,7 @@ package jp.co.axa.apidemo.controllers;
 import jp.co.axa.apidemo.Exceptions.EmployeeNotFoundException;
 import jp.co.axa.apidemo.models.Employee;
 import jp.co.axa.apidemo.payload.request.employee.CreateEmployeeRequest;
+import jp.co.axa.apidemo.payload.request.employee.UpdateEmployeeRequest;
 import jp.co.axa.apidemo.payload.response.employee.CreateEmployeeResponse;
 import jp.co.axa.apidemo.payload.response.employee.GetEmployeeResponse;
 import jp.co.axa.apidemo.payload.response.employee.ListEmployeeResponse;
@@ -63,13 +64,13 @@ public class EmployeeController {
 
     @PutMapping("/employee/{employee_id}")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public ResponseEntity<UpdateEmployeeResponse> updateEmployee(@Valid @RequestBody UpdateEmployeeResponse updateEmployeeResponse,
+    public ResponseEntity<UpdateEmployeeResponse> updateEmployee(@Valid @RequestBody UpdateEmployeeRequest updateEmployeeRequest,
                                                                  @PathVariable(name = "employee_id") Long employeeId,
                                                                  BindingResult bindingResult) throws EmployeeNotFoundException {
         if (bindingResult.hasErrors()) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT);
         }
-        Employee updatedEmployee = employeeService.updateEmployee(employeeId, updateEmployeeResponse.getEmployee());
+        Employee updatedEmployee = employeeService.updateEmployee(employeeId, updateEmployeeRequest.getEmployee());
         UpdateEmployeeResponse response = new UpdateEmployeeResponse(updatedEmployee);
         return ResponseEntity.ok(response);
     }
