@@ -2,7 +2,7 @@ package com.monstarlab.movie.config;
 
 import com.monstarlab.movie.security.jwt.AuthEntryPointJwt;
 import com.monstarlab.movie.security.jwt.AuthTokenFilter;
-import com.monstarlab.movie.service.MovieUserDetailsService;
+import com.monstarlab.movie.service.EmployeeUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    MovieUserDetailsService userDetailsService;
+    EmployeeUserDetailsService userDetailsService;
 
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
@@ -46,8 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/api/auth/**", "/h2-console/**").permitAll()
-                .antMatchers("/api/movies/**").permitAll()
-                .antMatchers("/api/users/**").permitAll()
                 .antMatchers().permitAll()
                 .anyRequest().authenticated();
 

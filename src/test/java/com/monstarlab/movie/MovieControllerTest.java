@@ -1,16 +1,12 @@
 package com.monstarlab.movie;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.monstarlab.movie.controllers.MovieController;
 import com.monstarlab.movie.models.Movie;
 import com.monstarlab.movie.models.enums.MovieType;
-import com.monstarlab.movie.payload.request.CreateMovieRequest;
-import com.monstarlab.movie.payload.request.UpdateMovieRequest;
 import com.monstarlab.movie.payload.response.movie.CreateMovieResponse;
 import com.monstarlab.movie.payload.response.movie.GetMovieResponse;
 import com.monstarlab.movie.payload.response.movie.ListMovieResponse;
 import com.monstarlab.movie.payload.response.movie.UpdateMovieResponse;
-import com.monstarlab.movie.service.MovieService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

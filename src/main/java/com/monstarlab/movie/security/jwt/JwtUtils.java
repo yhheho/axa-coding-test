@@ -1,6 +1,6 @@
 package com.monstarlab.movie.security.jwt;
 
-import com.monstarlab.movie.models.MovieUserDetails;
+import com.monstarlab.movie.models.EmployeeUserDetails;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,13 +17,13 @@ import java.util.Date;
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-    @Value("${movie.app.jwtSecret}")
+    @Value("${employee.app.jwtSecret}")
     private String jwtSecret;
 
-    @Value("${movie.app.jwtExpiration}")
+    @Value("${employee.app.jwtExpiration}")
     private int jwtExpirationMs;
 
-    @Value("${movie.app.jwtCookieName}")
+    @Value("${employee.app.jwtCookieName}")
     private String jwtCookie;
 
     public String getJwtFromCookies(HttpServletRequest request) {
@@ -35,7 +35,7 @@ public class JwtUtils {
         }
     }
 
-    public ResponseCookie generateJwtCookie(MovieUserDetails userPrincipal) {
+    public ResponseCookie generateJwtCookie(EmployeeUserDetails userPrincipal) {
         String jwt = generateTokenFromUsername(userPrincipal.getUsername());
         ResponseCookie cookie = ResponseCookie.from(jwtCookie, jwt).path("/api").maxAge(24 * 60 * 60).httpOnly(true).build();
         return cookie;

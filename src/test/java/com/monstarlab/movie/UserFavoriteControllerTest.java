@@ -1,12 +1,9 @@
 package com.monstarlab.movie;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.monstarlab.movie.controllers.UserFavoriteController;
 import com.monstarlab.movie.models.Favorite;
-import com.monstarlab.movie.payload.request.CreateFavoriteRequest;
 import com.monstarlab.movie.payload.response.favorite.CreateFavoriteResponse;
 import com.monstarlab.movie.payload.response.favorite.ListFavoriteResponse;
-import com.monstarlab.movie.service.UserFavoriteService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

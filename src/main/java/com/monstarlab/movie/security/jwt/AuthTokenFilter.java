@@ -1,6 +1,6 @@
 package com.monstarlab.movie.security.jwt;
 
-import com.monstarlab.movie.service.MovieUserDetailsService;
+import com.monstarlab.movie.service.EmployeeUserDetailsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtils jwtUtils;
     @Autowired
-    private MovieUserDetailsService userDetailsService;
+    private EmployeeUserDetailsService userDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

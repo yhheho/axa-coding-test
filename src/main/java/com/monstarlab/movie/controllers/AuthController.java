@@ -1,11 +1,11 @@
 package com.monstarlab.movie.controllers;
 
-import com.monstarlab.movie.payload.request.LoginRequest;
+import com.monstarlab.movie.payload.request.auth.LoginRequest;
 import com.monstarlab.movie.payload.response.MessageResponse;
 import com.monstarlab.movie.payload.response.auth.UserInfoResponse;
 import com.monstarlab.movie.repository.UserRepository;
 import com.monstarlab.movie.security.jwt.JwtUtils;
-import com.monstarlab.movie.models.MovieUserDetails;
+import com.monstarlab.movie.models.EmployeeUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
@@ -44,7 +44,7 @@ public class AuthController {
                 .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        MovieUserDetails userDetails = (MovieUserDetails) authentication.getPrincipal();
+        EmployeeUserDetails userDetails = (EmployeeUserDetails) authentication.getPrincipal();
         ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(userDetails);
 
         List<String> roles = userDetails.getAuthorities().stream()
