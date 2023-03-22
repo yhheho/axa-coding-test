@@ -9,9 +9,9 @@ CREATE TABLE users (
 );
 
 
-INSERT INTO users (username, email, password, created_at, updated_at) VALUES ('admin', 'admin@monstarlab.com', '$2a$12$Glo/oXmFSmuBdBpiYhlDkeky.8mWcHvjQ0oYQfr1nNcyTs261CGmq', NOW(), NOW());
-INSERT INTO users (username, email, password, created_at, updated_at) VALUES ('m1', 'm1@monstarlab.com', '$2a$12$Glo/oXmFSmuBdBpiYhlDkeky.8mWcHvjQ0oYQfr1nNcyTs261CGmq', NOW(), NOW());
-INSERT INTO users (username, email, password, created_at, updated_at) VALUES ('m2', 'm2@monstarlab.com', '$2a$12$Glo/oXmFSmuBdBpiYhlDkeky.8mWcHvjQ0oYQfr1nNcyTs261CGmq', NOW(), NOW());
+INSERT INTO users (username, email, password, created_at, updated_at) VALUES ('admin', 'admin@axalife.com', '$2a$12$Glo/oXmFSmuBdBpiYhlDkeky.8mWcHvjQ0oYQfr1nNcyTs261CGmq', NOW(), NOW());
+INSERT INTO users (username, email, password, created_at, updated_at) VALUES ('m1', 'm1@axalife.com', '$2a$12$Glo/oXmFSmuBdBpiYhlDkeky.8mWcHvjQ0oYQfr1nNcyTs261CGmq', NOW(), NOW());
+INSERT INTO users (username, email, password, created_at, updated_at) VALUES ('m2', 'm2@axalife.com', '$2a$12$Glo/oXmFSmuBdBpiYhlDkeky.8mWcHvjQ0oYQfr1nNcyTs261CGmq', NOW(), NOW());
 
 
 CREATE TABLE roles (

@@ -1,0 +1,15 @@
+package jp.co.axa.apidemo.payload.request.employee;
+
+import jp.co.axa.apidemo.models.Employee;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.validation.constraints.NotNull;
+
+@Setter
+@Getter
+public class CreateEmployeeRequest {
+
+    @NotNull
+    private Employee employee;
+}
