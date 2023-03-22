@@ -16,6 +16,7 @@
   - username: admin, pass: 123, ROLE = ADMIN
   - username: m1, pass: 123, ROLE = USER
   - username: m2, pass: 123, ROLE = USER
+- A simple JWT authorization is added. Please see /signin, /signout endpoints.
 
 ## APIs
 ### Auth
@@ -116,46 +117,10 @@ delete an employee
 - Response Status Codes:
   - 200 OK: Returned on success.
 
+---
 
-### Favorite
-The path of favorite is under /api/users
-
-#### GET /api/users/{user_id}/favorites
-Retrieve all favorite of a user.
-
-- Only USER or ADMIN role can access this endpoint
-- Path parameter:
-  - user_id (required, integer): the user id
-  - page (optional): The page number to retrieve, defaults to 0.
-  - size (optional): The number of movies to retrieve per page, defaults to 10.
-- Response body:
-  - hasNextPage: the result is a page, you can use this to retrieve next page.
-  - list of Favorite: 
-    - Favorite:
-      - userId (integer): the user id of this favorite
-      - movieId (integer): the movie id of this favorite
-      - movieTitle (string): the title of the favorite movie
-
-#### POST /api/users/{user_id}/favorites
-create a new favorite of a user.
-
-- Only USER or ADMIN role can access this endpoint
-- Path parameter:
-  - user_id (required, integer): the user id
-- Request:
-  - movieId (integer): the movie id to be favorite by the user.
-- Response Body:
-  - Favorite:
-    - userId (integer): the user id of this favorite
-    - movieId (integer): the movie id of this favorite
-    - movieTitle (string): the title of the favorite movie
-
-#### DELETE /api/users/{user_id}/favorites/{movie_id}
-delete a favorite by movie id
-
-- Only USER or ADMIN role can access this endpoint
-- Path parameter:
-  - user_id (required, integer): the user id
-  - movie_id (required, integer): the movie id
-- Response Status Codes:
-  - 200 OK: Returned on success.
+## Things to be improved
+- Can add redis for caching.
+- Can use MySQL instead of H2 memory database.
+- Can do session on server side.
+- Can add an API gateway as reverse proxy.
